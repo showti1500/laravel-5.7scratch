@@ -45,8 +45,11 @@ class PagesController extends Controller
 	public function store(Project $projects){
 
 		Project::create(
-
-			request(['title','description'])
+			request()->validate([
+			'title'=> ['required', 'min:3' , 'max:10'],
+			'description'=> ['required', 'min:3']
+			])
+			
 		);
 
 		return redirect('/project');

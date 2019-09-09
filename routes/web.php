@@ -23,6 +23,10 @@
 // });
 
 Route::resource('project','PagesController');
+
+Route::post('/project/{project}/task','ProjectTasksController@store');
+
+Route::patch('/tasks/{task}','ProjectTasksController@update');
 // Route::get('/about',function(){
 // 	return view('about')->with([
 // 		'header'=> 'About us',
