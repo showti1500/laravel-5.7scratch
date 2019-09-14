@@ -8,16 +8,28 @@ use \App\Project;
 class ProjectTasksController extends Controller
 {
     
-	public function update(Task $task){
+	// public function update(Task $task){
 
-		$task->update([
-			'completed' => request()->has('completed')
-		]
-		);
 
-		return back();
+	// 	if(request()->has('completed')){
 
-	}
+	// 		$task->complete(request()->has('completed'));
+	// 	}
+	// 	else{
+	// 		$task->incomplete();
+	// 	}
+
+
+	// 	// $task->complete(request()->has('completed'));
+
+	// 	// $task->update([
+	// 	// 	'completed' => request()->has('completed')
+	// 	// ]
+	// 	// );
+
+	// 	return back();
+
+	// }
 
 	public function store(Project $project){
 

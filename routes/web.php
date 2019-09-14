@@ -22,11 +22,17 @@
 //     return view('welcome')->withTasks($tasks);
 // });
 
+// Route::resource('project','PagesController')->middleware('auth');
+
 Route::resource('project','PagesController');
 
 Route::post('/project/{project}/task','ProjectTasksController@store');
 
-Route::patch('/tasks/{task}','ProjectTasksController@update');
+// Route::patch('/tasks/{task}','ProjectTasksController@update');
+
+Route::post('/complete-task/{task}','CompleteTaskController@store');
+
+Route::delete('/complete-task/{task}','CompleteTaskController@destroy');
 // Route::get('/about',function(){
 // 	return view('about')->with([
 // 		'header'=> 'About us',
@@ -49,3 +55,7 @@ Route::patch('/tasks/{task}','ProjectTasksController@update');
 // 		'content' => 'contact information- blah blah'
 // 	]);
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
